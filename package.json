@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Juan Manuel Incaurgarat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kilinkis/create-react-component"
+  },
   "license": "ISC",
   "dependencies": {
     "commander": "^6.2.0",
