@@ -1,5 +1,5 @@
-var program = require('commander');
-var fs = require('fs');
+const program = require('commander');
+const fs = require('fs');
 
 const indexFileContent = (name) => {
   return `
@@ -31,45 +31,40 @@ const basicileContent = (name) => {
 
 program
   .version('0.1.0')
-  .arguments('<componentName> [env]')
+  .arguments('<cmd>')
   .description('test command', {
-    componentName: 'command to run',
+    cmd: 'command to run',
   })
-  .action(function (componentName) {
-    console.log('command:', componentName || 'no environment given');
+  .action(function (cmd) {
+    // console.log('command:', cmd || 'no Component name given');
 
-    var dir = `./${componentName}`;
+    const dir = `./${cmd}`;
 
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
-      fs.writeFile(
-        `./${componentName}/index.jsx`,
-        indexFileContent(componentName),
-        function (err) {
-          if (err) throw err;
-          console.log('index.jsx created successfully.');
-        }
-      );
-      fs.writeFile(`./${componentName}/style.scss`, null, function (err) {
+
+      fs.writeFile(`./${cmd}/index.jsx`, indexFileContent(cmd), function (err) {
+        if (err) throw err;
+        console.log('index.jsx created successfully.');
+      });
+      fs.writeFile(`./${cmd}/style.scss`, '', function (err) {
         if (err) throw err;
         console.log('index.jsx created successfully.');
       });
       fs.writeFile(
-        `./${componentName}/${componentName}.stories.jsx`,
-        basicileContent(componentName),
+        `./${cmd}/${cmd}.stories.jsx`,
+        basicileContent(cmd),
         function (err) {
           if (err) throw err;
           console.log('Stories file created successfully.');
         }
       );
-      fs.writeFile(
-        `./${componentName}/${componentName}.spec.js`,
-        basicileContent(componentName),
-        function (err) {
-          if (err) throw err;
-          console.log('Spec file created successfully.');
-        }
-      );
+      fs.writeFile(`./${cmd}/${cmd}.spec.js`, basicileContent(cmd), function (
+        err
+      ) {
+        if (err) throw err;
+        console.log('Spec file created successfully.');
+      });
     } else {
       console.log('Directory already exist');
     }
