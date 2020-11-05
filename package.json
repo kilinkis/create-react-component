@@ -1,5 +1,5 @@
 {
-  "name": "crc",
+  "name": "jsb-crc",
   "version": "0.1.0",
   "description": "Simple command line app that generates a React component with spec, stories and scss file.",
   "main": "index.js",
