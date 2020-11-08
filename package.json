@@ -11,6 +11,7 @@
     "type": "git",
     "url": "https://github.com/kilinkis/create-react-component"
   },
+  "keywords": ["reactjs"],
   "license": "ISC",
   "dependencies": {
     "commander": "^6.2.0",
