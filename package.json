@@ -15,5 +15,9 @@
   "dependencies": {
     "commander": "^6.2.0",
     "fs": "0.0.1-security"
+  },
+  "bin": {
+    "@kilinkis/create-project": "./index.js",
+    "crc": "./index.js"
   }
 }
